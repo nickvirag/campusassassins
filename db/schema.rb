@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140222010957) do
+ActiveRecord::Schema.define(:version => 20140222025942) do
+
+  create_table "seasons", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "display"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.integer  "account"
@@ -21,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20140222010957) do
     t.text     "succeededtargets"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "refresh_token"
+    t.string   "access_token"
+    t.datetime "expires"
   end
 
 end
