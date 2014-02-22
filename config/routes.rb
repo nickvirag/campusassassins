@@ -3,7 +3,7 @@ Ltuassassins::Application.routes.draw do
 
   root :to => 'home#index'
   match "/auth/google_login/callback" => "sessions#create"
-  match "/signout" => "sessions#destroy", :as => :signout
+  match "/logout" => "sessions#destroy", :as => :logout
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

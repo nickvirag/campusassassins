@@ -1,7 +1,8 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <% if current_user %>
-welcome!
+welcome <%= current_user.name %>
+<%= link_to "Sign out", "/logout" %>
 <% else %>
 <%= link_to "Sign in with Google google_login", "/auth/google_login" %>
 <% end %>
