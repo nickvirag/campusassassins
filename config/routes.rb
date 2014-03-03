@@ -1,4 +1,10 @@
 Ltuassassins::Application.routes.draw do
+  get "season/index"
+
+  get "register/index"
+
+  get "register/new"
+
   get 'home/index'
 
   root :to => 'home#index'

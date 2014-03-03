@@ -11,3 +11,26 @@
  *= require_self
  *= require_tree .
 */
+
+html{ 
+  background: url( background.png ) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body{
+	margin: auto auto auto auto;
+	max-width: 500px;
+	text-align: center;
+	color: white;
+	font-family: 'lato', sans-serif;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4 );
+}
+h1{
+	font-weight: 900;
+	font-style: italic;
+	font-size: 4.0em;
+}
