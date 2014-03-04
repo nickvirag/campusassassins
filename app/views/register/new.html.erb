@@ -1,2 +1,44 @@
-<h1>Register#new</h1>
-<p>Find me in app/views/register/new.html.erb</p>
+<script>
+	function isVisible( ){
+		/*$( ".backgroundBlur" ).css( "display", "inline-block" );
+		$( ".backgroundBlur" ).width( $( ".ui-datepicker" ).width( ) );
+		$( ".backgroundBlur" ).height( $( ".ui-datepicker" ).height( ) );
+		$( ".ui-datepicker" ).css( "z-index", 900 );
+		$( ".backgroundBlur" ).css( "z-index", 600 );
+		$( ".backgroundBlur" ).css({ top: $( ".ui-datepicker" ).css( "top" ), left: $( ".ui-datepicker" ).css( "left" ) });*/
+		return false;
+	}
+	$( function( ){
+		$( "#startTime" ).datepicker( );
+		$( "#endTime" ).datepicker( );
+	} );
+</script>
+<div class="backgroundBlur" style="display: none;"></div>
+	<%= form_tag "/register/create", method: "post" do %>
+	<table>
+		<tr>
+			<td>EVENT NAME</td>
+			<td>
+				<%= text_field_tag :eventName, '', :id => "eventName" %><br>
+				<br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>FROM</td>
+			<td><%= text_field_tag :startTime, '', :id => "startTime", :onclick => "isVisible( );" %></td>
+		</tr>
+		<tr>
+			<td>TO</td>
+			<td>
+				<%= text_field_tag :endTime, '', :id => "endTime" %><br>
+				<br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><%= submit_tag "CREATE EVENT" %></td>
+		</tr>
+	</table>
+<% end %>

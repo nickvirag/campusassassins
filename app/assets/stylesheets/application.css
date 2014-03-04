@@ -34,3 +34,23 @@ h1{
 	font-style: italic;
 	font-size: 4.0em;
 }
+.backgroundBlur{
+	background-color: rgba(100, 100, 100, 0.6 );
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	position: fixed;
+}
+td{
+	vertical-align: top;
+	text-align: left;
+}
+table{
+	margin-left: auto;
+	margin-right: auto;
+}
+input[ type=submit ]{
+	width: 100%;
+}

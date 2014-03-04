@@ -1,5 +1,5 @@
 class RegisterController < ApplicationController
   def index
-  	Season.all = @seasons
+  	@seasons = Season.all
   end
 end

@@ -1,7 +1,6 @@
-<h1>LTU ASSASSINS</h1>
 <% if current_user %>
 welcome <%= current_user.name %>
 <%= link_to "Sign out", "/logout" %>
 <% else %>
-<%= link_to "Sign in with Google google_login", "/auth/google_login" %>
+<%= link_to "@ltu.edu login", "/auth/google_login", :class => "zocial google" %>
 <% end %>
