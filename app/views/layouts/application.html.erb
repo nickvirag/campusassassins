@@ -3,11 +3,12 @@
 	<head>
 		<title>LTU Aassassins</title>
 		<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:300,900italic" %>
+		<%= stylesheet_link_tag "jquery-ui-1.10.4.custom/css/custom-theme/jquery-ui-1.10.4.custom" %>
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= stylesheet_link_tag "zocial/zocial", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js"></script>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>

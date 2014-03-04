@@ -5,6 +5,8 @@ Ltuassassins::Application.routes.draw do
 
   get "register/new"
 
+  post "register/create"
+
   get 'home/index'
 
   root :to => 'home#index'

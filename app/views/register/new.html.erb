@@ -9,8 +9,11 @@
 		return false;
 	}
 	$( function( ){
-		$( "#startTime" ).datepicker( );
-		$( "#endTime" ).datepicker( );
+		$( "#startTime" ).datepicker( { dateFormat: "yy-mm-dd" } );
+		$( "#endTime" ).datepicker( { dateFormat: "yy-mm-dd" } );
+		var today = new Date( );
+		$( "#startTime" ).datepicker( 'setDate', today );
+		$( "#endTime" ).datepicker( 'setDate', new Date( today.getFullYear( ), today.getMonth( ) + 1, today.getDate( ) ) );
 	} );
 </script>
 <div class="backgroundBlur" style="display: none;"></div>
@@ -19,7 +22,15 @@
 		<tr>
 			<td>EVENT NAME</td>
 			<td>
-				<%= text_field_tag :eventName, '', :id => "eventName" %><br>
+				<%= text_field_tag :eventName, 'LTU Assassins', :id => "eventName" %><br>
+				<br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>TARGETS PER PLAYER</td>
+			<td>
+				<%= text_field_tag :targets, '2', :id => "targets" %><br>
 				<br>
 				<br>
 			</td>
