@@ -3,9 +3,10 @@ class RegisterController < ApplicationController
   	@seasons = Season.all
   end
   def create
-  	if( params[ :eventName ] != '' && params[ :targets ] != '' && params[ :startTime ] != '' && params[ :endTime ] != '' )
+  	if( params[ :eventName ] != '' && params[ :eventDescription ] != '' && params[ :targets ] != '' && params[ :startTime ] != '' && params[ :endTime ] != '' )
   		nSeason = Season.new
   		nSeason.display = params[ :eventName ]
+      nSeason.description = params[ :eventDescription ]
   		nSeason.targets = params[ :targets ]
   		nSeason.start = params[ :startTime ]
   		nSeason.end = params[ :endTime ]
@@ -14,5 +15,7 @@ class RegisterController < ApplicationController
   	else
   		render :text => "You left something blank!"
   	end
+  end
+  def event
   end
 end

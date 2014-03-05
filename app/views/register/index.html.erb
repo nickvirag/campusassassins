@@ -1,4 +1,14 @@
-<p>Find me in app/views/register/index.html.erb</p>
-<% @seasons.each do |season| %>
-	<%= @season.display %>
-<% end %>
+<p>Register for an event.</p>
+<table id="registerTable">
+	<!--<thead>
+		<th>NAME</th>
+		<th>FROM</th>
+		<th>TO</th>
+	</thead>-->
+	<% @seasons.each do |season| %>
+	<tr class="seasonRow" onclick="document.location='/register/event/<%= season.id %>';">
+		<td class="seasonDisplay"><%= season.display %></td>
+		<td><%= season.start.strftime( "%m.%d.%Y" ) %> - <%= season.end.strftime( "%m.%d.%Y" ) %></td>
+	</tr>
+	<% end %>
+</table>

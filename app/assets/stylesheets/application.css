@@ -54,3 +54,16 @@ table{
 input[ type=submit ]{
 	width: 100%;
 }
+#registerTable{
+	border-spacing: 20px;
+	white-space: nowrap;
+}
+.seasonDisplay{
+	font-weight: bold;
+}
+.seasonRow{
+	cursor: pointer;
+}
+.seasonRow:hover {
+	text-decoration:underline; 
+} 

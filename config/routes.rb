@@ -9,6 +9,8 @@ Ltuassassins::Application.routes.draw do
 
   get 'home/index'
 
+  get "register/event/:id" => "register#event"
+
   root :to => 'home#index'
   match "/auth/google_login/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout
