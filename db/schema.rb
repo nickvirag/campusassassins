@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140305230654) do
+ActiveRecord::Schema.define(:version => 20140306001253) do
+
+  create_table "players", :force => true do |t|
+    t.integer  "account"
+    t.integer  "points"
+    t.text     "currenttargets"
+    t.text     "failedtargets"
+    t.text     "succeededtargets"
+    t.integer  "user_id"
+    t.integer  "season_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "seasons", :force => true do |t|
     t.datetime "start"
@@ -47,6 +59,18 @@ ActiveRecord::Schema.define(:version => 20140305230654) do
     t.string   "refresh_token"
     t.string   "access_token"
     t.datetime "expires"
+  end
+
+  create_table "usersforseasons", :force => true do |t|
+    t.integer  "account"
+    t.integer  "points"
+    t.text     "currenttargets"
+    t.text     "failedtargets"
+    t.text     "succeededtargets"
+    t.integer  "user_id"
+    t.integer  "season_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

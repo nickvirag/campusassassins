@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  account: 1
+  points: 1
+  currenttargets: 1
+  failedtargets: 1
+  succeededtargets: 1
+  user_id: 1
+  season_id: 1
+
+two:
+  account: 1
+  points: 1
+  currenttargets: 1
+  failedtargets: 1
+  succeededtargets: 1
+  user_id: 1
+  season_id: 1

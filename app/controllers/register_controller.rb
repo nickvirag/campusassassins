@@ -17,5 +17,6 @@ class RegisterController < ApplicationController
   	end
   end
   def event
+    @season = Season.find( params[ :id ] )
   end
 end

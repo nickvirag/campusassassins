@@ -1,1 +1,39 @@
-<%= params[ :id ] %>
+<table>
+	<tr>
+		<td>EVENT NAME</td>
+		<td>
+			<%= @season.display %><br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td>DESCRIPTION</td>
+		<td>
+			<%= @season.description %><br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td>TARGETS PER PLAYER</td>
+		<td>
+			<%= @season.targets %><br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td>FROM</td>
+		<td><%= @season.start.strftime( "%m.%d.%Y" ) %></td>
+	</tr>
+	<tr>
+		<td>TO</td>
+		<td>
+			<%= @season.end.strftime( "%m.%d.%Y" ) %><br>
+			<br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><%= submit_tag "REGISTER" %></td>
+	</tr>
+</table>
