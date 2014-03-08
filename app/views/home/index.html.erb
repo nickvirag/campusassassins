@@ -1,5 +1,15 @@
 <% if current_user %>
-welcome <%= current_user.name %>
+<p>
+	welcome <%= current_user.name %>
+</p>
+<% current_user.players.each do |player| %>
+<p>
+	<b><%= player.season.display %></b>: <%= player.season.description %><br>
+	<span class="gameEnd">Game ends <%= player.season.end %></span><br>
+	<br>
+	YOUR TARGETS<br>
+</p>
+<% end %>
 <%= link_to "Sign out", "/logout" %>
 <% else %>
 <%= link_to "@ltu.edu login", "/auth/google_login", :class => "zocial google" %>

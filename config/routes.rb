@@ -7,6 +7,8 @@ Ltuassassins::Application.routes.draw do
 
   post "register/create"
 
+  post 'register/join'
+
   get 'home/index'
 
   get "register/event/:id" => "register#event"

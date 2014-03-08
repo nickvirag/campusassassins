@@ -34,6 +34,11 @@
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><%= submit_tag "REGISTER" %></td>
+		<td>
+			<%= form_tag "/register/join", method: "post" do %>
+				<%= hidden_field_tag "season_id", @season.id %>
+				<%= submit_tag "REGISTER" %>
+			<% end %>
+		</td>
 	</tr>
 </table>

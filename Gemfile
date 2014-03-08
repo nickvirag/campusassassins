@@ -11,6 +11,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem "rails-erd"
 end
 
 gem "omniauth-google-oauth2"

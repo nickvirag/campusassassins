@@ -66,4 +66,12 @@ input[ type=submit ]{
 }
 .seasonRow:hover {
 	text-decoration:underline; 
-} 
+}
+.gameEnd{
+	font-size: 0.7em;
+	font-weight: 300;
+}
+.bodyFooter{
+	font-size: 0.6em;
+	font-weight: 300;
+}
