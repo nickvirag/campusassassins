@@ -16,3 +16,6 @@
 
 # ignore app id and app secret
 /config/application.yml
+
+# ignore rake erd results
+/erd.pdf
