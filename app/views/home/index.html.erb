@@ -8,9 +8,9 @@
 	<span class="gameEnd">Game ends <%= player.season.end %></span><br>
 	<br>
 	YOUR TARGETS<br>
+	<%= player.currenttargets %>
 </p>
 <% end %>
-<%= link_to "Sign out", "/logout" %>
 <% else %>
 <%= link_to "@ltu.edu login", "/auth/google_login", :class => "zocial google" %>
 <% end %>

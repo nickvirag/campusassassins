@@ -13,7 +13,7 @@ class RegisterController < ApplicationController
   		nSeason.save
       redirect_to :controller => :home, :action => :index
   	else
-  		render :text => "You left something blank!"
+  		redirect_to :controller => :register, :action => :create
   	end
   end
   def event
