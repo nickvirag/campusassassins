@@ -3,14 +3,22 @@ class RegisterController < ApplicationController
   	@seasons = Season.all
   end
   def create
-  	if( params[ :eventName ] != '' && params[ :eventDescription ] != '' && params[ :targets ] != '' && params[ :startTime ] != '' && params[ :endTime ] != '' )
+  	if( params[ :eventName ] != '' && params[ :eventDescription ] != '' && params[ :targets ] != '' && params[ :startTime ] != '' && params[ :endTime ] != '' && params[ :tagPoints ] != '' && params[ :taggedPoints ] != '' )
   		nSeason = Season.new
   		nSeason.display = params[ :eventName ]
       nSeason.description = params[ :eventDescription ]
   		nSeason.targets = params[ :targets ]
   		nSeason.start = params[ :startTime ]
   		nSeason.end = params[ :endTime ]
+      nSeason.tagpoints = params[ :tagPoints ]
+      nSeason.tagged_points = params[ :taggedPoints ]
   		nSeason.save
+      nPlayer = Player.new
+      nPlayer.season = nSeason
+      nPlayer.user = current_user
+      nPlayer.account = 1
+      nPlayer.points = 0
+      nPlayer.save
       redirect_to :controller => :home, :action => :index
   	else
   		redirect_to :controller => :register, :action => :create

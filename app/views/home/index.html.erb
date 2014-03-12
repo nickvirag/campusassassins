@@ -3,12 +3,38 @@
 	welcome <%= current_user.name %>
 </p>
 <% current_user.players.each do |player| %>
-<p>
-	<b><%= player.season.display %></b>: <%= player.season.description %><br>
-	<span class="gameEnd">Game ends <%= player.season.end %></span><br>
-	<br>
-	YOUR TARGETS<br>
-	<%= player.currenttargets %>
+	<table class="styleTable">
+		<tr>
+			<td>GAME</td>
+			<td>
+				<%= player.season.display %>
+			</td>
+		</tr>
+		<tr>
+			<td>END</td>
+			<td><%= player.season.end %></td>
+		</tr>
+		<tr>
+			<td>DESCRIPTION</td>
+			<td><%= player.season.description %></td>
+		</tr>
+		<tr>
+			<td>TARGETS</td>
+			<td>
+				<% player.getCurrentTargets.each do |target| %>
+				<%= link_to 'TAG', "/user/tag/#{ target.id }" %> <%= target.user.name %><br>
+				<% end %>
+			</td>
+		</tr>
+		<% if player.account == 1 %>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				MANAGE
+			</td>
+		</tr>
+		<% end %>
+	</table>
 </p>
 <% end %>
 <% else %>

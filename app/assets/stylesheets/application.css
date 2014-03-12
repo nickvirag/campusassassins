@@ -54,6 +54,10 @@ table{
 input[ type=submit ]{
 	width: 100%;
 }
+.styleTable{
+	border-spacing: 20px;
+	white-space: nowrap;
+}
 #registerTable{
 	border-spacing: 20px;
 	white-space: nowrap;
@@ -65,13 +69,13 @@ input[ type=submit ]{
 	cursor: pointer;
 }
 .seasonRow:hover {
-	text-decoration:underline; 
+	text-decoration: underline; 
 }
 .gameEnd{
 	font-size: 0.7em;
 	font-weight: 300;
 }
 .bodyFooter{
-	font-size: 0.6em;
+	font-size: 0.7em;
 	font-weight: 300;
 }

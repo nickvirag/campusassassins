@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140306001253) do
+ActiveRecord::Schema.define(:version => 20140312203854) do
 
   create_table "players", :force => true do |t|
     t.integer  "account"
@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(:version => 20140306001253) do
     t.datetime "start"
     t.datetime "end"
     t.string   "display"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "targets"
     t.string   "description"
+    t.integer  "tagpoints"
+    t.integer  "tagged_points"
   end
 
   create_table "sessions", :force => true do |t|
