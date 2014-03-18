@@ -1,5 +1,5 @@
 class CreatePlayers < ActiveRecord::Migration
-  def up
+  def change
     create_table :players do |t|
       t.integer :account
       t.integer :points
@@ -11,8 +11,5 @@ class CreatePlayers < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
   end
 end
