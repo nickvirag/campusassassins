@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first_or_initialize(
       :refresh_token => auth["credentials"]["refresh_token"],
       :access_token => auth["credentials"]["token"],
-      :expires => auth["credentials"]["expires_at"],
+      :expires => Time.at( auth["credentials"]["expires_at"] ),
       :name => auth["info"]["name"],
     )
     url = session[:return_to] || root_path
