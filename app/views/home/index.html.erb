@@ -11,6 +11,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>POINTS</td>
+			<td>
+				<%= player.points %>
+			</td>
+		</tr>
+		<tr>
 			<td>END</td>
 			<td><%= player.season.end %></td>
 		</tr>
@@ -22,7 +28,7 @@
 			<td>TARGETS</td>
 			<td>
 				<% player.getCurrentTargets.each do |target| %>
-				<%= link_to 'TAG', "/user/tag/#{ target.id }" %> <%= target.user.name %><br>
+				<%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ player.id }" %> <%= target.user.name %><br>
 				<% end %>
 			</td>
 		</tr>
