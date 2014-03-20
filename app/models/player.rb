@@ -3,9 +3,11 @@ class Player < ActiveRecord::Base
 	belongs_to :season
 	def getCurrentTargets
 		t = [ ]
-		res = currenttargets.split( ',' ).map( &:to_i )
-		res.each do |i|
-			t << Player.find( i )
+		if !currenttargets.blank?
+			res = currenttargets.split( ',' ).map( &:to_i )
+			res.each do |i|
+				t << Player.find( i )
+			end
 		end
 		t
 	end

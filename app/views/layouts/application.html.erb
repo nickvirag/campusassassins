@@ -13,18 +13,22 @@
 	</head>
 	<body>
 		<h1>LTU ASSASSINS</h1>
+		<%= yield %>
+		<br>
+		<br>
 		<% if current_user %>
 		<span id="bodyHeader">
 			<%= link_to 'HOME', '/home/index' %>
-			<%= link_to 'CREATE AN EVENT', '/register/new' %>
+			<%# /register/new link hidden from standard users %>
+			<%#= link_to 'CREATE AN EVENT', '/register/new' %>
 			<%= link_to "SIGN OUT", "/logout" %>
 		</span><br>
 		<% end %>
-		<%= yield %>
-		<br>
 		<br>
 		<div class="bodyFooter">
 			Game concept by <%= link_to 'Gabe Stroe', 'mailto:gstroe@ltu.edu' %> and <%= link_to 'Philip Bigos', 'mailto:pbigos@ltu.edu' %>. Website by <%= link_to 'Nick Virag', 'mailto:nick@nickv.co' %>. Fork me on <%= link_to 'Github', 'https://github.com/nickvirag/campusassassins' %>!
 		</div>
+		<br>
+		<br>
 	</body>
 </html>

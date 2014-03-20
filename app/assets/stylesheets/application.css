@@ -33,6 +33,7 @@ h1{
 	font-weight: 900;
 	font-style: italic;
 	font-size: 4.0em;
+	text-shadow: 0px 1px 4px rgba(100, 0, 0, 0.9 );
 }
 .backgroundBlur{
 	background-color: rgba(100, 100, 100, 0.6 );
@@ -58,6 +59,10 @@ input[ type=submit ]{
 	border-spacing: 20px;
 	white-space: nowrap;
 }
+.homeStyleTable{
+	border-spacing: 10px;
+	white-space: nowrap;
+}
 #registerTable{
 	border-spacing: 20px;
 	white-space: nowrap;
@@ -78,4 +83,28 @@ input[ type=submit ]{
 .bodyFooter{
 	font-size: 0.7em;
 	font-weight: 300;
+}
+a{
+	color: white;
+	font-weight: bold;
+}
+a:link{
+	text-decoration:none;
+	text-shadow: 0px 1px 4px rgba(100, 0, 0, 0.9 );
+}
+a:visited{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+a:active{
+	text-decoration:underline;
+}
+.gameInfo{
+	font-family: "Courier New", Courier, monospace;
+}
+.gameInfoHeader{
+	font-weight: bold;
+	font-family: "Courier New", Courier, monospace;
 }

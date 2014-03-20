@@ -1,32 +1,44 @@
 <% if current_user %>
-<p>
-	welcome <%= current_user.name %>
+<p class="gameInfoHeader">
+	WELCOME <%= current_user.name %>_
 </p>
+<% if current_user.players.blank? %>
+<br>
+<%= link_to 'JOIN AN EVENT', "/register/index" %>
+<% end %>
 <% current_user.players.each do |player| %>
-	<table class="styleTable">
+	<table class="homeStyleTable">
 		<tr>
 			<td>GAME</td>
-			<td>
+			<td class="gameInfo">
 				<%= player.season.display %>
 			</td>
 		</tr>
 		<tr>
+			<td>DESCRIPTION</td>
+			<td class="gameInfo"><%= player.season.description %></td>
+		</tr>
+		<tr>
+			<td>STATUS</td>
+			<td class="gameInfo">
+				<% if player.season.start.time( ) < DateTime.current && DateTime.current < player.season.end.time( ) %>
+				Game ends on <%= player.season.end.time( ) %>
+				<% elsif player.season.start.time( ) > DateTime.current %>
+				Game starts on <%= player.season.start.time( ) %>
+				<% elsif player.season.end.time( ) < DateTime.current %>
+				Game ended on <%= player.season.end.time( ) %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
 			<td>POINTS</td>
-			<td>
+			<td class="gameInfo">
 				<%= player.points %>
 			</td>
 		</tr>
 		<tr>
-			<td>END</td>
-			<td><%= player.season.end %></td>
-		</tr>
-		<tr>
-			<td>DESCRIPTION</td>
-			<td><%= player.season.description %></td>
-		</tr>
-		<tr>
 			<td>TARGETS</td>
-			<td>
+			<td class="gameInfo">
 				<% player.getCurrentTargets.each do |target| %>
 				<%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ player.id }" %> <%= target.user.name %><br>
 				<% end %>
