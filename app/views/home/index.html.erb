@@ -1,7 +1,4 @@
 <% if current_user %>
-<p class="gameInfoHeader">
-	WELCOME <%= current_user.name %>_
-</p>
 <% if current_user.players.blank? %>
 <br>
 <%= link_to 'JOIN AN EVENT', "/register/index" %>
@@ -15,35 +12,39 @@
 			</td>
 		</tr>
 		<tr>
-			<td>DESCRIPTION</td>
+			<td>ABOUT</td>
 			<td class="gameInfo"><%= player.season.description %></td>
 		</tr>
 		<tr>
 			<td>STATUS</td>
 			<td class="gameInfo">
 				<% if player.season.start.time( ) < DateTime.current && DateTime.current < player.season.end.time( ) %>
-				Game ends on <%= player.season.end.time( ) %>
+				Game ends on <%= player.season.end.strftime( "%m.%d.%Y" ) %>
 				<% elsif player.season.start.time( ) > DateTime.current %>
-				Game starts on <%= player.season.start.time( ) %>
+				Game starts on <%= player.season.start.strftime( "%m.%d.%Y" ) %>
 				<% elsif player.season.end.time( ) < DateTime.current %>
-				Game ended on <%= player.season.end.time( ) %>
+				Game ended on <%= player.season.end.strftime( "%m.%d.%Y" ) %>
 				<% end %>
 			</td>
 		</tr>
+		<% if player.season.start.time( ) < DateTime.current %>
 		<tr>
 			<td>POINTS</td>
 			<td class="gameInfo">
 				<%= player.points %>
 			</td>
 		</tr>
+		<% end %>
+		<% if player.season.start.time( ) < DateTime.current && DateTime.current < player.season.end.time( ) %>
 		<tr>
 			<td>TARGETS</td>
 			<td class="gameInfo">
 				<% player.getCurrentTargets.each do |target| %>
-				<%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ player.id }" %> <%= target.user.name %><br>
+				<%= link_to target.user.name, "/user/profile/#{ target.user.id }" %> - <%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ player.id }" %><br>
 				<% end %>
 			</td>
 		</tr>
+		<% end %>
 		<% if player.account == 1 %>
 		<tr>
 			<td>&nbsp;</td>
@@ -56,5 +57,7 @@
 </p>
 <% end %>
 <% else %>
+<span class="left">Assassins is a college campus game played with Nerf blasters. Every day, players are assigned targets and receive points for tagging another player with their blaster or foam weapon. Log in with your Google account to join today!</span><br>
+<br>
 <%= link_to "@ltu.edu login", "/auth/google_login", :class => "zocial google" %>
 <% end %>

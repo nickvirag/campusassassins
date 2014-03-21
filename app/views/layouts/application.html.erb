@@ -12,21 +12,26 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<h1>LTU ASSASSINS</h1>
-		<%= yield %>
+		<p style="font-size: 0">
+		<span class="title">LTU ASSASSINS</span><br><% if current_user %><span class="gameInfoHeader">WELCOME <%= current_user.name %>_</span></p>
 		<br>
+		<% end %>
+		<div class="content">
+			<%= yield %>
+		</div>
 		<br>
 		<% if current_user %>
-		<span id="bodyHeader">
-			<%= link_to 'HOME', '/home/index' %>
+		<span class="linkFooter">
+			<%= link_to 'HOME', '/home/index' %>&nbsp;-
+			<%= link_to 'PROFILE', "/user/profile/#{ current_user.id }" %>&nbsp;-
 			<%# /register/new link hidden from standard users %>
 			<%#= link_to 'CREATE AN EVENT', '/register/new' %>
-			<%= link_to "SIGN OUT", "/logout" %>
+			<%= link_to 'JOIN', '/register/index' %>&nbsp;-
+			<%= link_to "LOGOUT", "/logout" %>
 		</span><br>
 		<% end %>
-		<br>
 		<div class="bodyFooter">
-			Game concept by <%= link_to 'Gabe Stroe', 'mailto:gstroe@ltu.edu' %> and <%= link_to 'Philip Bigos', 'mailto:pbigos@ltu.edu' %>. Website by <%= link_to 'Nick Virag', 'mailto:nick@nickv.co' %>. Fork me on <%= link_to 'Github', 'https://github.com/nickvirag/campusassassins' %>!
+			Website by <%= link_to 'Nick Virag', 'mailto:nick@nickv.co' %>. Game concept by <%= link_to 'Gabe Stroe', 'mailto:gstroe@ltu.edu' %> and <%= link_to 'Philip Bigos', 'mailto:pbigos@ltu.edu' %>. Fork me on <%= link_to 'Github', 'https://github.com/nickvirag/campusassassins' %>!
 		</div>
 		<br>
 		<br>

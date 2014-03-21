@@ -1,0 +1,19 @@
+<div>
+	<p style="float: left;">
+		<%= image_tag @user.image_link, :class => "profilePhoto" %>
+	</p>
+	<p class="gameInfo profileInfo">
+		<%= @user.name %><br>
+		<br>
+		<%= @user.email %><br>
+		<br>
+		<% if @user.about != nil %>
+		<span class="quote">&quot;<%= @user.about %>&quot;</span><br>
+		<br>
+		<% end %>
+		<% if @user.weapon != nil %>
+		PREFERRED WEAPONS: <%= @user.weapon %>
+		<% end %>
+	</p>
+</div>
+<div style="clear: left;"></div>

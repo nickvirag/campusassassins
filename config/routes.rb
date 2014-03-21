@@ -15,6 +15,8 @@ Ltuassassins::Application.routes.draw do
 
   get "user/tag/:id" => "user#tag"
 
+  get "user/profile/:id" => "user#profile"
+
   root :to => 'home#index'
   match "/auth/google_login/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout

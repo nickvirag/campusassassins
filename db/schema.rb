@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140312203854) do
+ActiveRecord::Schema.define(:version => 20140321005048) do
 
   create_table "players", :force => true do |t|
     t.integer  "account"
@@ -21,20 +21,22 @@ ActiveRecord::Schema.define(:version => 20140312203854) do
     t.text     "succeededtargets"
     t.integer  "user_id"
     t.integer  "season_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "enabled",          :default => true
   end
 
   create_table "seasons", :force => true do |t|
     t.datetime "start"
     t.datetime "end"
     t.string   "display"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "targets"
     t.string   "description"
     t.integer  "tagpoints"
     t.integer  "tagged_points"
+    t.boolean  "enabled",       :default => true
   end
 
   create_table "sessions", :force => true do |t|
@@ -61,6 +63,10 @@ ActiveRecord::Schema.define(:version => 20140312203854) do
     t.string   "refresh_token"
     t.string   "access_token"
     t.datetime "expires"
+    t.text     "about"
+    t.text     "weapon"
+    t.string   "email"
+    t.string   "image_link"
   end
 
   create_table "usersforseasons", :force => true do |t|

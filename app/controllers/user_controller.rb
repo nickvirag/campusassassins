@@ -15,4 +15,7 @@ class UserController < ApplicationController
 		tagged.save
 		redirect_to :controller => :home, :action => :index
 	end
+	def profile
+		@user = User.find( params[ :id ] )
+	end
 end
