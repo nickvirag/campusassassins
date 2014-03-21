@@ -41,7 +41,6 @@ body{
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: 0;
-	margin-top: 40px;
 	display: inline-block;
 	width: 100%;
 	text-align: center;
@@ -150,7 +149,27 @@ a:active{
 	text-align: left;
 	padding-left: 20px;
 	float: left;
+	height: 150px;
+	position: relative;
 }
 .quote{
 	font-style: italic;
+}
+.footer{
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 40px;
+	width: 100%;
+	display: inline-block;
+}
+.tagLink{
+	font-size: 1.1em;
+	width: 300px;
+	padding: 5px;
+	display: inline-block;
+	background-color:rgba( 100,0,0,0.1 );
+	text-align: center;
+	position: absolute;
+    bottom: 0;
 }

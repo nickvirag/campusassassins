@@ -1,10 +1,5 @@
-<p>Register for an event.</p>
+<p>REGISTER FOR AN EVENT</p>
 <table id="registerTable">
-	<!--<thead>
-		<th>NAME</th>
-		<th>FROM</th>
-		<th>TO</th>
-	</thead>-->
 	<% @seasons.each do |season| %>
 	<tr class="seasonRow" onclick="document.location='/register/event/<%= season.id %>';">
 		<td class="seasonDisplay"><%= season.display %></td>
@@ -12,3 +7,67 @@
 	</tr>
 	<% end %>
 </table>
+<br>
+<br>
+UPCOMING EVENTS YOU'RE SIGNED UP FOR<br>
+<br>
+<% @future_games.each do |game| %>
+<table class="homeStyleTable">
+	<tr>
+		<td>GAME</td>
+		<td class="gameInfo"><%= game.season.display %></td>
+	</tr>
+	<tr>
+		<td>ABOUT</td>
+		<td class="gameInfo"><%= game.season.description %></td>
+	</tr>
+	<tr>
+		<td>STATUS</td>
+		<td class="gameInfo">
+			Game begins on <%= game.season.start.strftime( "%m.%d.%Y" ) %>
+		</td>
+	</tr>
+	<% if game.account == 1 %>
+	<tr>
+		<td>&nbsp;</td>
+		<td>MANAGE</td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+<br>
+<br>
+PAST EVENTS YOU ATTENDED<br>
+<br>
+<% @past_games.each do |game| %>
+<table class="homeStyleTable">
+	<tr>
+		<td>GAME</td>
+		<td class="gameInfo"><%= game.season.display %>
+		</td>
+	</tr>
+	<tr>
+		<td>ABOUT</td>
+		<td class="gameInfo"><%= game.season.description %></td>
+	</tr>
+	<tr>
+		<td>STATUS</td>
+		<td class="gameInfo">
+			Game ended on <%= game.season.end.strftime( "%m.%d.%Y" ) %>
+		</td>
+	</tr>
+	<tr>
+		<td>POINTS</td>
+		<td class="gameInfo"><%= game.points %></td>
+	</tr>
+	<% if game.account == 1 %>
+	<tr>
+		<td>&nbsp;</td>
+		<td>MANAGE</td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+<br>
+<br>
+<%= link_to 'CREATE AN EVENT', '/register/new' %>

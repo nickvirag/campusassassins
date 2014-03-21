@@ -1,6 +1,29 @@
 class RegisterController < ApplicationController
   def index
-  	@seasons = Season.all
+    @seasons = [ ]
+    Season.all.each do |season|
+      if DateTime.current < season.end.time( )
+        current_user.players.each do |player|
+          if player.season.id == season.id
+            break
+          end
+        end
+        @seasons << season
+      end
+    end
+    @current_games = [ ]
+    @past_games = [ ]
+    @future_games = [ ]
+    current_user.players.each do |player|
+      if DateTime.current > player.season.start.time( ) && DateTime.current < player.season.end.time( )
+        @current_games << player
+      elsif DateTime.current < player.season.start.time( )
+        @future_games << player
+      elsif DateTime.current > player.season.end.time( )
+        @past_games << player
+      end 
+    end
+
   end
   def create
   	if( params[ :eventName ] != '' && params[ :eventDescription ] != '' && params[ :targets ] != '' && params[ :startTime ] != '' && params[ :endTime ] != '' && params[ :tagPoints ] != '' && params[ :taggedPoints ] != '' )

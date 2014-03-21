@@ -3,58 +3,37 @@
 <br>
 <%= link_to 'JOIN AN EVENT', "/register/index" %>
 <% end %>
-<% current_user.players.each do |player| %>
-	<table class="homeStyleTable">
-		<tr>
-			<td>GAME</td>
-			<td class="gameInfo">
-				<%= player.season.display %>
-			</td>
-		</tr>
-		<tr>
-			<td>ABOUT</td>
-			<td class="gameInfo"><%= player.season.description %></td>
-		</tr>
-		<tr>
-			<td>STATUS</td>
-			<td class="gameInfo">
-				<% if player.season.start.time( ) < DateTime.current && DateTime.current < player.season.end.time( ) %>
-				Game ends on <%= player.season.end.strftime( "%m.%d.%Y" ) %>
-				<% elsif player.season.start.time( ) > DateTime.current %>
-				Game starts on <%= player.season.start.strftime( "%m.%d.%Y" ) %>
-				<% elsif player.season.end.time( ) < DateTime.current %>
-				Game ended on <%= player.season.end.strftime( "%m.%d.%Y" ) %>
-				<% end %>
-			</td>
-		</tr>
-		<% if player.season.start.time( ) < DateTime.current %>
-		<tr>
-			<td>POINTS</td>
-			<td class="gameInfo">
-				<%= player.points %>
-			</td>
-		</tr>
+<% @current_games.each do |game| %>
+<%= game.season.display %>: <span class="gameInfo"><%= game.season.description %></span><br>
+<span class="gameInfo">Game ends on <%= game.season.end.strftime( "%m.%d.%Y" ) %></span><br>
+<%= game.points %><br>
+<% game.getCurrentTargets.each do |target| %>
+<%#= link_to target.user.name, "/user/profile/#{ target.user.id }" %><%#= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ game.id }" %>
+<div>
+	<p style="float: left;">
+		<%= image_tag target.user.image_link, :class => "profilePhoto" %>
+	</p>
+	<p class="gameInfo profileInfo">
+		<%= target.user.name %><br>
+		<br>
+		<%= target.user.email %><br>
+		<br>
+		<% if target.user.about != nil %>
+		<span class="quote">&quot;<%= target.user.about %>&quot;</span><br>
+		<br>
 		<% end %>
-		<% if player.season.start.time( ) < DateTime.current && DateTime.current < player.season.end.time( ) %>
-		<tr>
-			<td>TARGETS</td>
-			<td class="gameInfo">
-				<% player.getCurrentTargets.each do |target| %>
-				<%= link_to target.user.name, "/user/profile/#{ target.user.id }" %> - <%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ player.id }" %><br>
-				<% end %>
-			</td>
-		</tr>
+		<% if target.user.weapon != nil %>
+		PREFERRED WEAPONS: <%= target.user.weapon %>
 		<% end %>
-		<% if player.account == 1 %>
-		<tr>
-			<td>&nbsp;</td>
-			<td>
-				MANAGE
-			</td>
-		</tr>
-		<% end %>
-	</table>
-</p>
+		<%= link_to 'PROFILE', "/user/profile/#{ target.user.id }" %><br>
+		<%= link_to 'TAG', "/user/tag/#{ target.id }?tagger=#{ game.id }", :class => "tagLink" %>
+	</p>
+</div>
+<div style="clear: left;"></div>
+<% end %>
+<% if game.account == 1 %>
+MANAGE
+<% end %>
 <% end %>
 <% else %>
 <span class="left">Assassins is a college campus game played with Nerf blasters. Every day, players are assigned targets and receive points for tagging another player with their blaster or foam weapon. Log in with your Google account to join today!</span><br>
